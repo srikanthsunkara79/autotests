@@ -77,6 +77,8 @@ describe("Check for Cars in Autotrader", () => {
         // Select Min Price - 1000
         //cy.get('#price-from').select('1000', {force : true});
 
+
+        
         // Select Milage - 70000
         cy.get('#mileageid > .options-button__inner').click()
         .then( () => {
