@@ -57,7 +57,7 @@ describe("Check for Cars in Autotrader", () => {
     //      Min Price - 3000
     //      Milage < 70000
     //      Fuel Type - Petrol 
-    it.only("Search Fiat cars and apply filters after search results", () => {
+    it("Search Fiat cars and apply filters after search results", () => {
         cy.visit("https://www.autotrader.co.uk/");
         cy.reload();
 
@@ -76,6 +76,8 @@ describe("Check for Cars in Autotrader", () => {
 
         // Select Min Price - 1000
         //cy.get('#price-from').select('1000', {force : true});
+
+
 
         // Select Milage - 70000
         cy.get('#mileageid > .options-button__inner').click()
