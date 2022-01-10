@@ -65,7 +65,7 @@ describe("Check for Cars in Autotrader", () => {
         cy.get('#postcode').type('CH23JQ');
 
         // Select Make 
-        cy.get("#make").select('Fiat', {force : true}).should('have.value', 'Fiat');
+        cy.get("#make").select('Peugeot', {force : true}).should('have.value', 'Peugeot');
 
         // Get Search Result by clicking Search button 
         cy.get('.atds-button--primary').click();
@@ -85,12 +85,12 @@ describe("Check for Cars in Autotrader", () => {
 
         // Select Fuel Type - Petrol
         cy.get("[data-button-for='fuel-type']").click();
-        cy.get(':nth-child(11) > .flyout-menu > .flyout > .sf-flyout__scrollable-options > .sf-flyout__options > :nth-child(3) > .at-field__selection > .at-field__input').click();
+        cy.get("[data-selected-display-name='Petrol']").click();
 
         // Validate Results with Filters 
         // Validate selected Cars Make 
         cy.get("ul[class='search-page__products']").children().first().click();
-        cy.get('aside').should('contain', 'Fiat');
+        cy.get('aside').should('contain', 'Peugeot');
 
         // Validate selected Cars Min Price 
         cy.get('[data-testid=advert-price]').then(($val) => {
