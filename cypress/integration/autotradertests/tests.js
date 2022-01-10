@@ -74,6 +74,8 @@ describe("Check for Cars in Autotrader", () => {
         cy.get("[name='radius']").select('100', { force : true}).should('contain', 'Within 100 miles');
 
 
+        
+
         // Select Min Price - 1000
         cy.get('#price-from').select('1000', { force : true});
 
