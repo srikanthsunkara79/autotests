@@ -1,5 +1,6 @@
 /// < reference types = "Cypress " />
 
+require('cypress-xpath');
 const { stringify } = require("querystring");
 
 describe("Check for Cars in Autotrader", () => {
@@ -56,7 +57,7 @@ describe("Check for Cars in Autotrader", () => {
     //      Min Price - 3000
     //      Milage < 70000
     //      Fuel Type - Petrol 
-    it("Search Fiat cars and apply filters after search results", () => {
+    it.only("Search Fiat cars and apply filters after search results", () => {
         cy.visit("https://www.autotrader.co.uk/");
         cy.reload();
 
@@ -65,7 +66,7 @@ describe("Check for Cars in Autotrader", () => {
         cy.get('#postcode').type('CH23JQ');
 
         // Select Make 
-        cy.get("#make").select('Peugeot', {force : true}).should('have.value', 'Peugeot');
+        cy.get("#make").select('Ferrari', {force : true}).should('have.value', 'Ferrari');
 
         // Get Search Result by clicking Search button 
         cy.get('.atds-button--primary').click();
@@ -73,11 +74,8 @@ describe("Check for Cars in Autotrader", () => {
         // Adding Distance - 100 Miles Filter
         cy.get("[name='radius']").select('100', { force : true}).should('contain', 'Within 100 miles');
 
-
-        
-
         // Select Min Price - 1000
-        cy.get('#price-from').select('1000', { force : true});
+        //cy.get('#price-from').select('1000', {force : true});
 
         // Select Milage - 70000
         cy.get('#mileageid > .options-button__inner').click()
@@ -92,7 +90,7 @@ describe("Check for Cars in Autotrader", () => {
         // Validate Results with Filters 
         // Validate selected Cars Make 
         cy.get("ul[class='search-page__products']").children().first().click();
-        cy.get('aside').should('contain', 'Peugeot');
+        cy.get('aside').should('contain', 'Ferrari');
 
         // Validate selected Cars Min Price 
         cy.get('[data-testid=advert-price]').then(($val) => {
