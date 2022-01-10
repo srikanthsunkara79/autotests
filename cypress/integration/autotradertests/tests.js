@@ -104,7 +104,7 @@ describe("Check for Cars in Autotrader", () => {
 
         // Validate Fuel Type 
         cy.get('.sc-cTAqQK > :nth-child(4)').then(($val) => {
-            expect($val.text()).to.contain('Diesel');
+            expect($val.text()).to.contain('Petrol');
         })
 
         
