@@ -1,5 +1,7 @@
 /// < reference types = "Cypress " />
 
+
+/// Testing example
 require('cypress-xpath');
 const { stringify } = require("querystring");
 
